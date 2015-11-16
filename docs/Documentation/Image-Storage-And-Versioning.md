@@ -5,10 +5,13 @@ You can set up automatic image processing for the ImageStorage table. To make th
 
 All you need to do is basically use the image model and configure versions on a per model basis. When you save an ImageStorage table entity it is important to have the 'model' field filled so that the script can find the correct versions for that model.
 
-Optionally you can overwrite default Imagine save options. Just add your config under the `_output` key. You can configure image quality, format etc.
+Optionally you can overwrite default Imagine save options. Just add your config under the `FileStorage.defaultOutput` key. You can configure image quality, format etc. You can also configure these options for each version individually under the `_output` key.
 
 ```php
 Configure::write('FileStorage', array(
+	'defaultOutput' => array(
+		'format' => 'jpeg'
+	),
 	'imageSizes' => array(
 		'GalleryImage' => array(
 			'c50' => array(
